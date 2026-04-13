@@ -3,12 +3,13 @@ defineProps({
     showBack: Boolean,
     showCart: Boolean,
     showMenu: Boolean,
-})
+});
 
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiCart, mdiMenu, mdiArrowLeft } from '@mdi/js'
+import appInput from '../forms/appInput.vue';
 const router = useRouter()
 
 const mdiCartIcon = ref(mdiCart)
@@ -18,6 +19,7 @@ const mdiArrowLeftIcon = ref(mdiArrowLeft)
 </script>
 <template>
 <header>
+    <div class="app-header">
     <ul class="container">
     <li>
         <button class="menu-hamburguer icon" v-if="showMenu">
@@ -38,12 +40,16 @@ const mdiArrowLeftIcon = ref(mdiArrowLeft)
         </button>
     </li>
     </ul>
+    <div class="barra-de-pesquisa">
+        <appInput placeholder="Buscar produtos..." />
+    </div>
+    </div>
 </header>
 </template>
 <style scoped>
 header{
     background-color: #74403E;
-    height: 100px;
+    height: 115px;
 }
 
 .container{
@@ -67,4 +73,11 @@ header{
     height: auto;
 }
 
+.barra-de-pesquisa{
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+}
 </style>

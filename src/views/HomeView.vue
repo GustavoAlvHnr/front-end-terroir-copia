@@ -1,9 +1,7 @@
 <script setup>
-
+import appHeader from '@/components/layout/appHeader.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <appHeader show-menu show-cart />
 </template>
