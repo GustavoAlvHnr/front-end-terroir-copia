@@ -1,8 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue'
-import appHeader from '@/components/layout/appHeader.vue';
 import { useProdutosStore } from '@/stores/produtos';
 import Loading from 'vue-loading-overlay';
+import appHeader from '@/components/layout/appHeader.vue';
+import appButton from '@/components/forms/appButton.vue';
 
 import { mdiArrowDownDropCircleOutline, mdiArrowLeftDropCircleOutline } from '@mdi/js';
 import svgIconVue from '@jamescoyle/vue-icon';
@@ -30,15 +31,14 @@ onMounted(() => {
     </div>
     <div class="lista-produtos">
       <h2>Em destaque <svgIconVue type="mdi" :path="mdiArrowLeftIcon" v-if="open"/> <svgIconVue type="mdi" :path="mdiArrowDownIcon" v-else/></h2>
-      <div class="produtos">
+      <div class="produtos" v-if="!open">
         <Loading v-model:active="produtosStore.loading" is-full-page/>
         <!-- Aqui vão os produtos em destaque -->
          <div v-for="produto in produtosStore.produtos" :key="produto.id" class="produto">
           <img :src="produto.imagem_url" :alt="produto.nome" class="imagem-produto"/>
           <h3>{{ produto.nome }}</h3>
-          <p>{{ produto.descricao }}</p>
           <p class="preco">R$ {{ produto.preco }}</p>
-          <button>Adicionar ao carrinho</button>
+          <appButton variant="primary">Adicionar ao carrinho</appButton>
          </div>
       </div>
     </div>
@@ -47,6 +47,9 @@ onMounted(() => {
 <style scoped>
 main{
     margin-top: 30px;
+}
+.banner{
+  margin-bottom: 30px;
 }
 .lista-produtos h2{
   display: flex;
