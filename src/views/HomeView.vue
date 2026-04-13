@@ -23,7 +23,7 @@ onMounted(() => {
   <main class="container">
     <div class="banner">
       <Loading v-model:active="produtosStore.loading" is-full-page/>
-      <h2>placeholder</h2>
+      <img :src="produtosStore.produtos.imagem_url" :alt="produtosStore.produtos.nome" class="imagem-banner"/>
       <p>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non corporis veritatis incidunt ullam, esse deleniti accusamus, veniam iste unde mollitia blanditiis libero inventore animi aliquam perferendis molestias enim explicabo.
       </p>
