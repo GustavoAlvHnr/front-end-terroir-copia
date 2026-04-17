@@ -32,7 +32,7 @@ const mdiArrowLeftIcon = ref(mdiArrowLeft)
         </button>
     </li>
     <li>
-        <p><img src="/public/Logo.png" alt="Terroir Café" class="logo" /></p>
+        <p><img src="/Logo.png" alt="Terroir Café" class="logo" /></p>
     </li>
     <li>
         <button @click="router.push('/cart')" class="carrinho icon" v-if="showCart">
@@ -78,6 +78,6 @@ header{
     top: 90px;
     left: 50%;
     transform: translateX(-50%);
-    width: 25%;
+    width: 480px;
 }
 </style>
